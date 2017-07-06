@@ -6,11 +6,13 @@
 #include <OpenImageIO/imageio.h>
 #include <OpenImageIO/typedesc.h>
 
-
 namespace JlOpenImageIO
 {
 
 using namespace OIIO;
+
+void register_TypeDesc(jlcxx::Module& mod);
+
 
 } // namespace JlOpenImageIO
 

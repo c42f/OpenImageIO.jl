@@ -25,8 +25,9 @@ add_definitions (-DJULIA_ENABLE_THREADING)
 
 include_directories ("${OIIO_ROOT}/include")
 
-add_library (JlOpenImageIO SHARED 
-    jl_imageinput.cpp
+add_library (JlOpenImageIO SHARED
+    typedesc.cpp
+    module.cpp
 )
 
 target_link_libraries (JlOpenImageIO ${OIIO_LIBRARY} ${CMAKE_DL_LIBS} JlCxx::jlcxx)
