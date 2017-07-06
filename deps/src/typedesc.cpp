@@ -49,13 +49,9 @@ void register_TypeDesc(jlcxx::Module& mod)
     mod.set_const("TypeDesc_RATIONAL", TypeDesc::RATIONAL);
 
     mod.add_type<TypeDesc>("TypeDesc")
-        .constructor<TypeDesc::BASETYPE, TypeDesc::AGGREGATE, TypeDesc::VECSEMANTICS, int>();
+        .constructor<TypeDesc::BASETYPE, TypeDesc::AGGREGATE, TypeDesc::VECSEMANTICS, int>()
+        .method("_print", &TypeDesc::c_str);
 
-    mod.method("_print", [](const TypeDesc& desc){
-        std::ostringstream ss;
-        ss << desc;
-        return ss.str();
-    });
 }
 
 }

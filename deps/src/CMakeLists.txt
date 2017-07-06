@@ -27,6 +27,7 @@ include_directories ("${OIIO_ROOT}/include")
 
 add_library (JlOpenImageIO SHARED
     typedesc.cpp
+    imageinput.cpp
     module.cpp
 )
 

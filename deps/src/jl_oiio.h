@@ -12,6 +12,7 @@ namespace JlOpenImageIO
 using namespace OIIO;
 
 void register_TypeDesc(jlcxx::Module& mod);
+void register_ImageInput(jlcxx::Module& mod);
 
 
 } // namespace JlOpenImageIO
