@@ -26,8 +26,9 @@ add_definitions (-DJULIA_ENABLE_THREADING)
 include_directories ("${OIIO_ROOT}/include")
 
 add_library (JlOpenImageIO SHARED
-    typedesc.cpp
-    imageinput.cpp
+    TypeDesc.cpp
+    ImageSpec.cpp
+    ImageInput.cpp
     module.cpp
 )
 
