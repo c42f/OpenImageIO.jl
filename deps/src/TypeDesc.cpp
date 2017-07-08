@@ -39,7 +39,7 @@ void register_TypeDesc(jlcxx::Module& mod)
     mod.set_const("TypeDesc_MATRIX44", TypeDesc::MATRIX44);
 
     mod.add_bits<TypeDesc::VECSEMANTICS>("TypeDesc_VECSEMANTICS");
-    mod.set_const("TypeDesc_NOSEMANTICS", TypeDesc::NOSEMANTICS);
+    mod.set_const("TypeDesc_NOXFORM", TypeDesc::NOXFORM);
     mod.set_const("TypeDesc_COLOR", TypeDesc::COLOR);
     mod.set_const("TypeDesc_POINT", TypeDesc::POINT);
     mod.set_const("TypeDesc_VECTOR", TypeDesc::VECTOR);
@@ -52,6 +52,7 @@ void register_TypeDesc(jlcxx::Module& mod)
         .constructor<TypeDesc::BASETYPE, TypeDesc::AGGREGATE, TypeDesc::VECSEMANTICS, int>()
         .method("_print", &TypeDesc::c_str);
 
+    mod.export_symbols("TypeDesc");
 }
 
 }
