@@ -7,8 +7,8 @@ void register_ImageInput(jlcxx::Module& mod)
 {
     mod.set_const("AutoStride", AutoStride);
 
-    mod.add_type<ImageInput>("ImageInput");
-        //.method("read_scanline", &ImageInput::read_scanline);
+    mod.add_type<ImageInput>("ImageInput")
+        .method("spec", &ImageInput::spec);
 
     mod.method("unsafe_read_image!",
         [](ImageInput& input, int chbegin, int chend,

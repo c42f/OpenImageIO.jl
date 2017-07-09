@@ -45,11 +45,16 @@ function TypeDesc(basetype::TypeDesc_BASETYPE, arraylen=0)
 end
 
 TypeDesc(::Type{T}) where {T<:BaseType} = TypeDesc(_basetype(T))
-# TODO: Use StaticVector here?
 TypeDesc(::Type{NTuple{N,T}}) where {N,T<:BaseType} = TypeDesc(_basetype(T), N)
 
 
 # Map from TypeDesc back to julia types?
 #function Type(desc::TypeDesc) = 
+
+#-------------------------------------------------------------------------------
+# ImageSpec
+function show(io::IO, spec::ImageSpec)
+    print(io, "ImageSpec$(serialize(spec, ImageSpec_SerialText, ImageSpec_SerialDetailedHuman))")
+end
 
 end
