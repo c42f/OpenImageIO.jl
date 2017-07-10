@@ -22,9 +22,15 @@ void register_ImageSpec(jlcxx::Module& mod)
     mod.set_const("ImageSpec_SerialDetailedHuman", ImageSpec::SerialDetailedHuman);
 
     mod.add_type<ImageSpec>("ImageSpec")
+        .constructor<TypeDesc>()
         .constructor<int,int,int,TypeDesc>()
+        //.method("attribute", &ImageSpec::attribute)
+        //.method("find_attribute", &ImageSpec::find_attribute)
         .method("size_t_safe", &ImageSpec::size_t_safe)
-        .method("serialize", &ImageSpec::serialize);
+        .method("serialize", &ImageSpec::serialize)
+        .method("channel_name", &ImageSpec::channel_name)
+        .method("channelformat", &ImageSpec::channelformat)
+        .method("channelindex", &ImageSpec::channelindex);
 
     // Ugly set of methods to get standard image metadata from an ImageSpec.
     // Potentially we'd just have a julia version of this instead?
@@ -50,6 +56,7 @@ void register_ImageSpec(jlcxx::Module& mod)
     mod.method("alpha_channel",  [](ImageSpec& spec) { return spec.alpha_channel;  });
     mod.method("z_channel",      [](ImageSpec& spec) { return spec.z_channel;      });
     mod.method("deep",           [](ImageSpec& spec) { return spec.deep;           });
+    mod.method("extra_attribs",  [](ImageSpec& spec) { return spec.extra_attribs;  });
 
     //mod.method("find_attribute", [](ImageSpec& spec, 
 }
