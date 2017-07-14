@@ -1,6 +1,6 @@
 module OpenImageIO
 
-import Base: show
+import Base: show, ==
 
 using CxxWrap
 

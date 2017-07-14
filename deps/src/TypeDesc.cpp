@@ -56,6 +56,7 @@ void register_TypeDesc(jlcxx::Module& mod)
     mod.method("aggregate", [](const TypeDesc& desc) { return (TypeDesc::AGGREGATE)desc.aggregate; });
     mod.method("vecsemantics", [](const TypeDesc& desc) { return (TypeDesc::VECSEMANTICS)desc.vecsemantics; });
     mod.method("arraylen", [](const TypeDesc& desc) { return desc.arraylen; });
+    mod.method("==", [](const TypeDesc& d1, const TypeDesc& d2) { return d1 == d2; });
 
     mod.export_symbols("TypeDesc");
 }
