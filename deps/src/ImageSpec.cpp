@@ -28,8 +28,11 @@ void register_ImageSpec(jlcxx::Module& mod)
         //.method("find_attribute", &ImageSpec::find_attribute)
         .method("size_t_safe", &ImageSpec::size_t_safe)
         .method("serialize", &ImageSpec::serialize)
-        .method("channel_name", &ImageSpec::channel_name)
+        .method("get_int_attribute", &ImageSpec::get_int_attribute)
+        .method("get_float_attribute", &ImageSpec::get_float_attribute)
+        .method("get_string_attribute", &ImageSpec::get_string_attribute)
         .method("channelformat", &ImageSpec::channelformat)
+        .method("channel_name", &ImageSpec::channel_name)
         .method("channelindex", &ImageSpec::channelindex);
 
     // Ugly set of methods to get standard image metadata from an ImageSpec.

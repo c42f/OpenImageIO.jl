@@ -52,6 +52,11 @@ void register_TypeDesc(jlcxx::Module& mod)
         .constructor<TypeDesc::BASETYPE, TypeDesc::AGGREGATE, TypeDesc::VECSEMANTICS, int>()
         .method("_print", &TypeDesc::c_str);
 
+    mod.method("basetype", [](const TypeDesc& desc) { return (TypeDesc::BASETYPE)desc.basetype; });
+    mod.method("aggregate", [](const TypeDesc& desc) { return (TypeDesc::AGGREGATE)desc.aggregate; });
+    mod.method("vecsemantics", [](const TypeDesc& desc) { return (TypeDesc::VECSEMANTICS)desc.vecsemantics; });
+    mod.method("arraylen", [](const TypeDesc& desc) { return desc.arraylen; });
+
     mod.export_symbols("TypeDesc");
 }
 
