@@ -140,7 +140,7 @@ function read_image!(input::ImageInput,
                                  convert(Ptr{Void},pointer(data)),
                                  xstride, ystride, zstride)
     if !success
-        throw(ArgumentError("Error occurred while reading image $input"))
+        throw(ErrorException(geterror(input)))
     end
     data
 end

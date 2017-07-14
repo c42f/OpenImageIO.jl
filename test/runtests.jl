@@ -25,4 +25,8 @@ end
 @testset "ImageInput" begin
     @test read_image(ImageInput_open("rgbw.png")) == [(0xff,0x00,0x00) (0x00,0xff,0x00);
                                                       (0x00,0x00,0xff) (0xff,0xff,0xff)]
+    # No image present
+    @test_throws ErrorException ImageInput_open("not_present.png")
+    # Present, but not an image
+    @test_throws ErrorException ImageInput_open("runtests.jl")
 end
