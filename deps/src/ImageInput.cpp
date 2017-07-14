@@ -28,8 +28,12 @@ void register_ImageInput(jlcxx::Module& mod)
         });
 
     mod.method("ImageInput_open",
-        [](const std::string& filename) {
-            return ImageInput::open(filename);
+        [](const std::string& filename)
+        {
+            ImageInput* input = ImageInput::open(filename);
+            if (!input)
+                throw std::runtime_error(geterror());
+            return input;
         });
 
     mod.export_symbols("unsafe_read_image!",
